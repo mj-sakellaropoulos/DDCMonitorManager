@@ -5,8 +5,7 @@
         Height="Auto" 
         Width="Auto" 
         SizeToContent="WidthAndHeight" 
-        ResizeMode="NoResize" 
-        WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize">
     <Grid x:Name="Root">
         <ItemsControl ItemsSource="{Binding Sliders}" Padding="10">
             <ItemsControl.ItemTemplate>
