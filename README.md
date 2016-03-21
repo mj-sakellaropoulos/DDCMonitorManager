@@ -1,4 +1,5 @@
-﻿Allows settings different settings on monitors supporting the DDC/CI protocol in Windows
+# DDCMonitorManager
+Allows settings different settings on monitors supporting the DDC/CI protocol in Windows
 
 Forked from: [DeastinY](https://github.com/DeastinY/DDCMonitorManager)
 

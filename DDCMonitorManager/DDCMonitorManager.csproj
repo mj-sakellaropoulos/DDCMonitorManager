@@ -64,7 +64,6 @@
     <Compile Include="Core\NativeConstants.cs" />
     <Compile Include="Core\BrightnessInfo.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <None Include="README" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NotifyIconViewModel.cs" />
     <Compile Include="ViewModels\SliderViewModel.cs" />
