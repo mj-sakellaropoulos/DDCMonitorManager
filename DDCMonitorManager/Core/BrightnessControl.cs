@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Windows.Interop;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
-namespace DDCMonitorManager
+namespace DDCMonitorManager.Core
 {
-    class BrightnessControl
+    public class BrightnessControl
     {
-
         private IntPtr hWnd;
         private NativeStructures.PHYSICAL_MONITOR[] pPhysicalMonitorArray;
         private uint pdwNumberOfPhysicalMonitors;
@@ -64,7 +57,7 @@ namespace DDCMonitorManager
             short current = -1, minimum = -1, maximum = -1;
             bool getBrightness = NativeCalls.GetMonitorBrightness(pPhysicalMonitorArray[monitorNumber].hPhysicalMonitor,ref minimum,ref current,ref maximum);
             int lastWin32Error = Marshal.GetLastWin32Error();
-            return new BrightnessInfo { minimum = minimum, maximum = maximum, current = current};
+            return new BrightnessInfo { Minimum = minimum, Maximum = maximum, Current = current};
         }
 
         public void DestroyMonitors()

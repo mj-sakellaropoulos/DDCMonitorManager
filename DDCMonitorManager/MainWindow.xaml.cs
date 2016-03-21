@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DDCMonitorManager.Core;
+using DDCMonitorManager.ViewModels;
 
 namespace DDCMonitorManager
 {
@@ -21,81 +23,31 @@ namespace DDCMonitorManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BrightnessControl brightnessControl;
         public MainWindow()
         {
             InitializeComponent();
-            Window window = Window.GetWindow(this);
-            var wih = new WindowInteropHelper(window);
-            IntPtr hWnd = wih.Handle;
-            brightnessControl = new BrightnessControl(hWnd);
-            InitializeSliders(brightnessControl.GetMonitors());
+            Loaded += OnLoaded;
+
         }
 
-        private void InitializeSliders(uint count)
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            for (int i = 0; i<count; ++i)
+            Window window = GetWindow(this);
+            if (window != null)
             {
-                AddSlider(i);
+                DataContext = new MainViewModel(window);
             }
-        }
-
-        private void AddSlider(int monitorNumber)
-        {
-            var mInfo = brightnessControl.GetBrightnessCapabilities(monitorNumber);
-            Slider slider = new Slider();
-            if (mInfo.current == -1)
-            {
-                slider.IsEnabled = false;
-            }
-            slider.Name = "M"+monitorNumber;
-            slider.Minimum = mInfo.minimum;
-            slider.Maximum = mInfo.maximum;
-            slider.IsSnapToTickEnabled = true;
-            slider.Width = 200;
-            slider.Value = mInfo.current;
-            slider.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
-            slider.ValueChanged += Slider_ValueChanged;
-
-            TextBlock text = new TextBlock();
-            text.Width = 50;
-            text.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-
-            Binding b = new Binding();
-            b.Source = slider;
-            b.Path = new PropertyPath("Value", slider.Value);
-            b.Mode = BindingMode.OneWay;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            text.SetBinding(TextBlock.TextProperty, b);
-            Root.Children.Add(slider);
-            Grid.SetRow(slider, monitorNumber);
-            Grid.SetColumn(slider, 1);
-            Root.Children.Add(text);
-            Grid.SetRow(text,monitorNumber);
-            Grid.SetColumn(text, 0);
-            Root.InvalidateVisual();
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Slider slider = sender as Slider;
-            int monitorNumber = Int32.Parse(slider.Name.Substring(1));
-            var conv = (short)e.NewValue;
-            if (brightnessControl != null)
+            if ((SliderViewModel) slider?.DataContext != null)
             {
-                brightnessControl.SetBrightness(conv,monitorNumber); 
+                var viewModel = (MainViewModel) DataContext;
+                viewModel?.ChangeSliderValue((SliderViewModel)slider.DataContext, (short)e.NewValue);
             }
         }
 
-        private void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow settingsWindow = new SettingsWindow(this);
-            settingsWindow.Show();
-        }
-
-        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

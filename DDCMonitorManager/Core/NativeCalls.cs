@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DDCMonitorManager
+namespace DDCMonitorManager.Core
 {
-    class NativeCalls
+    public class NativeCalls
     {
         [DllImport("user32.dll", EntryPoint = "MonitorFromWindow", SetLastError = true)]
         public static extern IntPtr MonitorFromWindow(
@@ -49,46 +45,5 @@ namespace DDCMonitorManager
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetMonitorBrightness(
             IntPtr hMonitor, ref short pdwMinimumBrightness, ref short pdwCurrentBrightness, ref short pdwMaximumBrightness);
-    }
-    public class NativeConstants
-    {
-        public const int MONITOR_DEFAULTTOPRIMARY = 1;
-
-        public const int MONITOR_DEFAULTTONEAREST = 2;
-
-        public const int MONITOR_DEFAULTTONULL = 0;
-    }
-
-    public class NativeStructures
-    {
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct PHYSICAL_MONITOR
-        {
-            public IntPtr hPhysicalMonitor;
-
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-            public string szPhysicalMonitorDescription;
-        }
-
-        public enum MC_DISPLAY_TECHNOLOGY_TYPE
-        {
-            MC_SHADOW_MASK_CATHODE_RAY_TUBE,
-
-            MC_APERTURE_GRILL_CATHODE_RAY_TUBE,
-
-            MC_THIN_FILM_TRANSISTOR,
-
-            MC_LIQUID_CRYSTAL_ON_SILICON,
-
-            MC_PLASMA,
-
-            MC_ORGANIC_LIGHT_EMITTING_DIODE,
-
-            MC_ELECTROLUMINESCENT,
-
-            MC_MICROELECTROMECHANICAL,
-
-            MC_FIELD_EMISSION_DEVICE,
-        }
     }
 }
