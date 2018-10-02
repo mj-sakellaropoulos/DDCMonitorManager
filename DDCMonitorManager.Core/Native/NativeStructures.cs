@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace DDCMonitorManager.Core
+namespace DDCMonitorManager.Core.Native
 {
     public class NativeStructures
     {

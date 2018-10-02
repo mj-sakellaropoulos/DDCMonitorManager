@@ -42,9 +42,9 @@
   <ItemGroup>
     <Compile Include="BrightnessControl.cs" />
     <Compile Include="BrightnessInfo.cs" />
-    <Compile Include="NativeCalls.cs" />
-    <Compile Include="NativeConstants.cs" />
-    <Compile Include="NativeStructures.cs" />
+    <Compile Include="Native\NativeCalls.cs" />
+    <Compile Include="Native\NativeConstants.cs" />
+    <Compile Include="Native\NativeStructures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

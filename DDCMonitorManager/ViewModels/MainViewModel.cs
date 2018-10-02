@@ -17,8 +17,7 @@ namespace DDCMonitorManager.WPF.ViewModels
         {
             Sliders = new ObservableCollection<SliderViewModel>();
 
-            var wih = new WindowInteropHelper(window);
-            brightnessControl = new BrightnessControl(wih.Handle);
+            brightnessControl = new BrightnessControl();
             InitializeSliders();
         }
 
@@ -37,7 +36,7 @@ namespace DDCMonitorManager.WPF.ViewModels
 
         private void InitializeSliders()
         {
-            var monitorsCount = brightnessControl.GetMonitors();
+            var monitorsCount = brightnessControl.GetMonitorCount();
             for (var i = 0; i < monitorsCount; ++i)
             {
                 var mInfo = brightnessControl.GetBrightnessCapabilities(i);

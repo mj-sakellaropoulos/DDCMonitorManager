@@ -1,4 +1,4 @@
-namespace DDCMonitorManager.Core
+namespace DDCMonitorManager.Core.Native
 {
     public class NativeConstants
     {
