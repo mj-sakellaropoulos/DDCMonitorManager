@@ -1,0 +1,5 @@
+D:\DEV\Personal\DDCI\DDCMonitorManager\DDCMonitorManager.Core\bin\Debug\DDCMonitorManager.Core.dll
+D:\DEV\Personal\DDCI\DDCMonitorManager\DDCMonitorManager.Core\bin\Debug\DDCMonitorManager.Core.pdb
+D:\DEV\Personal\DDCI\DDCMonitorManager\DDCMonitorManager.Core\obj\Debug\DDCMonitorManager.Core.csproj.CoreCompileInputs.cache
+D:\DEV\Personal\DDCI\DDCMonitorManager\DDCMonitorManager.Core\obj\Debug\DDCMonitorManager.Core.dll
+D:\DEV\Personal\DDCI\DDCMonitorManager\DDCMonitorManager.Core\obj\Debug\DDCMonitorManager.Core.pdb
