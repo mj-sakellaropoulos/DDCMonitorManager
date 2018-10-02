@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using DDCMonitorManager.Annotations;
 using DDCMonitorManager.Core;
+using DDCMonitorManager.WPF.Properties;
 
-namespace DDCMonitorManager.ViewModels
+namespace DDCMonitorManager.WPF.ViewModels
 {
     public class SliderViewModel : INotifyPropertyChanged
     {

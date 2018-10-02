@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Interop;
-using DDCMonitorManager.Annotations;
 using DDCMonitorManager.Core;
+using DDCMonitorManager.WPF.Properties;
 
-namespace DDCMonitorManager.ViewModels
+namespace DDCMonitorManager.WPF.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {

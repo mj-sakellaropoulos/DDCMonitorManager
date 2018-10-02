@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace DDCMonitorManager.ViewModels
+namespace DDCMonitorManager.WPF.ViewModels
 {
 
     /// <summary>
