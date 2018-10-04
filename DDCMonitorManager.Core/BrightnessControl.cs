@@ -35,7 +35,7 @@ namespace DDCMonitorManager.Core
 
         public bool SetBrightness(short brightness,int monitorNumber)
         {
-            var brightnessWasSet = NativeCalls.SetMonitorBrightness(PhysicalMonitors[monitorNumber].hPhysicalMonitor, (short)brightness);
+            var brightnessWasSet = HighLevelNativeCalls.SetMonitorBrightness(PhysicalMonitors[monitorNumber].hPhysicalMonitor, (short)brightness);
             if (brightnessWasSet)
                 Debug.WriteLine("Brightness set to " + (short)brightness);
             int lastWin32Error = Marshal.GetLastWin32Error();
@@ -45,7 +45,7 @@ namespace DDCMonitorManager.Core
         public BrightnessInfo GetBrightnessCapabilities(int monitorNumber)
         {
             short current = -1, minimum = -1, maximum = -1;
-            NativeCalls.GetMonitorBrightness(PhysicalMonitors[monitorNumber].hPhysicalMonitor,ref minimum,ref current,ref maximum);
+            HighLevelNativeCalls.GetMonitorBrightness(PhysicalMonitors[monitorNumber].hPhysicalMonitor,ref minimum,ref current,ref maximum);
             return new BrightnessInfo { Minimum = minimum, Maximum = maximum, Current = current};
         }
 

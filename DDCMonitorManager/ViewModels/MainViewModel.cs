@@ -44,7 +44,6 @@ namespace DDCMonitorManager.WPF.ViewModels
             }
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

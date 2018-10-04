@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace DDCMonitorManager.Core.Native
 {
-    public class NativeCalls
+    public class HighLevelNativeCalls
     {
         [DllImport("user32.dll", EntryPoint = "MonitorFromWindow", SetLastError = true)]
         public static extern IntPtr MonitorFromWindow(
@@ -92,7 +92,7 @@ namespace DDCMonitorManager.Core.Native
             foreach (var intPtr in HMONITORS)
             {
                 var tempAr = new NativeStructures.PHYSICAL_MONITOR[1];
-                NativeCalls.GetPhysicalMonitorsFromHMONITOR(intPtr, 1, tempAr);
+                HighLevelNativeCalls.GetPhysicalMonitorsFromHMONITOR(intPtr, 1, tempAr);
                 retList.Add(tempAr[0]);
             }
 

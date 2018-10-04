@@ -34,5 +34,11 @@ namespace DDCMonitorManager.Core.Native
 
             MC_FIELD_EMISSION_DEVICE,
         }
+
+        public enum _MC_VCP_CODE_TYPE
+        {
+            MC_MOMENTARY,
+            MC_SET_PARAMETER
+        }
     }
 }
